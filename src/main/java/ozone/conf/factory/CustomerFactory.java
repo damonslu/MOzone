@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Ozone.app.conf.factory;
+package ozone.conf.factory;
 
-import com.Ozone.domain.*;;
+import ozone.domain.*;;
 
 import java.util.*;
 

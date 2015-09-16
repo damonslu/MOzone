@@ -8,14 +8,10 @@ package ozone.domain;
 
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.List;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 
 /**
@@ -30,11 +26,8 @@ public class Category implements Serializable{
     private Long id;
     private String catName;
     private String description;
-    
-    @OneToMany
-    @JoinColumn(name = "prod_id")
-    private Collection<OrderItems> items;
-    
+   
+   
     public Category(){
            
        }
@@ -43,14 +36,12 @@ public class Category implements Serializable{
         this.catName=builder.catName;
         this.id=builder.id;
         this.description=builder.description;
-        this.items=builder.items;
       }
 
  public static class Builder{
            private Long id;
            private String catName;
            private String description;
-           private List<OrderItems> items;
 
         public Builder(String cat_Name) {
             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -68,11 +59,7 @@ public class Category implements Serializable{
                this.description = description;
                return this;
            }
-          public Collection<OrderItems> setItems(Collection<OrderItems> items){
-        
-        return items;
-    }
-                             
+                           
          public Category build(){
                return new Category(this);
            }
@@ -88,18 +75,11 @@ public class Category implements Serializable{
 public String getDescription(){
            return description;
        }
-
-    public Collection<OrderItems> getItems(Collection<OrderItems> items){
-        
-        return items;
-    }
-
 public Category copy(Category value){
                //this.description = value.description;
                this.id = value.id;
                 this.catName = value.catName;
                 this.description = value.description;
-                this.items=value.items;
                 
                   return this;
 }

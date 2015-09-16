@@ -1,43 +1,69 @@
-package ozone.domain;
-
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
 
-import static org.testng.Assert.*;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.AfterMethod;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeMethod;
+package ozone.domain;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  *
- * @author Lucrecia
+ * @author DAMONSLU
  */
 public class OrderitemTest {
     
     public OrderitemTest() {
     }
-    // TODO add test methods here.
-    // The methods must be annotated with annotation @Test. For example:
-    //
-    // @Test
-    // public void hello() {}
-
+    
     @BeforeClass
-    public static void setUpClass() throws Exception {
+    public static void setUpClass() {
     }
-
+    
     @AfterClass
-    public static void tearDownClass() throws Exception {
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
     }
 
-    @BeforeMethod
-    public void setUpMethod() throws Exception {
+    /**
+     * Test of getId method, of class OrderItem.
+     */
+    @Test
+    public void testGetId() {
+        System.out.println("getId");
+        OrderItem instance = new OrderItem();
+        Long expResult = null;
+        Long result = instance.getId();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
 
-    @AfterMethod
-    public void tearDownMethod() throws Exception {
+    /**
+     * Test of getItemName method, of class OrderItem.
+     */
+    @Test
+    public void testGetItemName() {
+        System.out.println("getItemName");
+        OrderItem instance = new OrderItem();
+        String expResult = "";
+        String result = instance.getItemname();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
+    
 }

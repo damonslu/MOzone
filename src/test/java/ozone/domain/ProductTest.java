@@ -1,11 +1,11 @@
-package course.domain;
+package ozone.domain;
 
 import org.junit.Test;
 
 /**
  * Created by hashcode on 2015/05/03.
  */
-public class DepartmentTest {
+public class ProductTest {
     @Test
     public void testCreate() throws Exception {
 

@@ -22,12 +22,13 @@ import ozone.domain.Product;
 public class CompanyFactory {
     public static Company createCompany(String compName, Address address, Contact contact,
                                               
-                                              List<OrderItems> items){
+                                              List<Product> products){
         Company company = new Company
                 .Builder(compName)
-                .contact(contact)
                 .address(address)
-                .getItems(items)
+                .contact(contact)
+                
+               .products(products)
                 .build();
 
         return company;

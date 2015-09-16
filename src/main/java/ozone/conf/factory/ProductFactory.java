@@ -2,9 +2,9 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package com.Ozone.app.conf.factory;
+package ozone.conf.factory;
 
-import com.Ozone.domain.*;;
+import ozone.domain.Product;
 
 import java.util.*;
 import javax.websocket.ClientEndpointConfig;
@@ -15,24 +15,17 @@ import java.util.*;
  * @author boniface
  */
 public class ProductFactory {
-    
-    /**
-     *
-     * @param id
-     * @param price
-     * @param quantity
-     * @return
-     */
-    public static Productdetails createProduct(double price,Integer quantity, String description){
+   
+    public static Product createProduct(double price,Integer quantity, String description){
         
-        Productdetails productdetails = new Productdetails
+        Product product = new Product
         //.Builder.id(value)
                 //.id(value.get(id))
              .Builder(price)
                 .setQuantity(quantity)
                 .setDescription(description)
                 .build();
-        return productdetails;
+        return product;
         /*customer.name(name);
         customer.address(address);
          customer.contact(contact);

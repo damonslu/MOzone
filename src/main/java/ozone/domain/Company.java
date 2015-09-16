@@ -47,21 +47,21 @@ public class Company implements Serializable{
            private Contact contact;
           
            
-        public Builder(Long id) {
-            throw new UnsupportedOperationException("Not yet implemented");
+        public Builder setId(Long id) {
+        this.id=id;
+        return this;
         }
 
-        public Builder(String compName) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        public Builder setCompName(String compName){
+        public Builder (String compName){
                this.compName = compName;
-               return this;
            }
                              
         public Builder address(Address value){
             this.address=value;
+            return this;
+        }
+        public Builder contact(Contact value){
+            this.contact=value;
             return this;
         }
 
@@ -69,10 +69,7 @@ public class Company implements Serializable{
                return new Company(this);
            }
 
-        public Object contact(Contact contact) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-       }
+               }
     
        public Long getId(){
            return id;

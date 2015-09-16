@@ -1,112 +1,159 @@
 /*
- * To change this template, choose Tools | Templates
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+
 package ozone.domain;
 
-import java.math.BigDecimal;
-import java.util.HashMap;
-import java.util.Map;
-import org.junit.*;
-import org.springframework.context.ApplicationContext;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
-import ozone.conf.factory.CompanyFactory;
+import java.util.Collection;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+import ozone.domain.Address;
 import ozone.domain.Company;
-import za.ac.cput.company.model.Department;
-import za.ac.cput.company.model.Subject;
-import za.ac.cput.company.model.Company;
-import ozone.service.CategoryService;
-import ozone.service.ProductService;
-import ozone.service.CustomerService;
+import ozone.domain.Contact;
 
 /**
  *
- * @author Administrator
+ * @author DAMONSLU
  */
 public class CompanyTest {
-
-    private static Long comapnyID;
-    private static Long courseId;
-    private CourseCrudService courseCrudService;
-    private DepartmentService categoryService;
-    private static ApplicationContext ctx;
-    private CompanyCrudService companyCrudService;
-
+    
     public CompanyTest() {
     }
-
+    
     @BeforeClass
-    public static void setUpClass() throws Exception {
-        ctx = new ClassPathXmlApplicationContext("classpath:za/ac/cput/company/app/conf/applicationContext-*.xml");
+    public static void setUpClass() {
     }
-
+    
     @AfterClass
-    public static void tearDownClass() throws Exception {
+    public static void tearDownClass() {
     }
-
+    
     @Before
     public void setUp() {
     }
-
+    
     @After
     public void tearDown() {
     }
 
+    /**
+     * Test of getId method, of class Company.
+     */
     @Test
-    public void testCompanyCrud() {
-        companyCrudService = (CompanyCrudService) ctx.getBean("companyCrudService");
-        
-        categoryService = (DepartmentService) ctx.getBean("categoryService");
-
-        Map<String, String> values = new HashMap<String, String>();
-        values.put("companyName", " CPUT");
-        values.put("productName", " Informatics and Design");
-        values.put("productCode", " FID");
-
-        values.put("dept2", "PR");
-        values.put("dept1", "IT");
-        values.put("dept3", "DESIGN");
-
-        Company company = AppFactory.createCompany(values);
-        companyCrudService.persist(company);
-        Assert.assertNotNull(company);
-        companyID = company.getId();
-
-        Department pr = categoryService.findDeptName("PR", companyID);
-        Department design = categoryService.findDeptName("DESIGN", companyID);
-        Department it = categoryService.findDeptName("IT", companyID);
-
-        Subject tp = AppFactory.createSubject("Technical Programming", "TPG300S", new BigDecimal("3470.00"));
-        Subject ds = AppFactory.createSubject("Development Software", "DOS300S", new BigDecimal("3470.00"));
-
-        Course itCourse = AppFactory.createCourse("IT ND", "NDIP");
-
-        Course course2 = AppFactory.createCourse("PR ND", "NDIP");
-
-        Course course3 = AppFactory.createCourse("DESIGN ND", "NDIP");
-
-        itCourse.getSubjects().add(tp);
-        itCourse.getSubjects().add(ds);
-
-
-
-
-
-
-        itCourse.setDept(it);
-
-
-        //get a dept attach to course 
-        courseCrudService = (CourseCrudService) ctx.getBean("courseCrudService");
-        courseCrudService.persist(itCourse);
-
-        // Persist 6 courses,
-        //int courses = categoryService.getNumberOfCourses(it);
-        Assert.assertEquals(2, it.getCourses());
-
-        //
-
-
-
+    public void testGetId() {
+        System.out.println("getId");
+        Company instance = new Company();
+        Long expResult = null;
+        Long result = instance.getId();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
     }
+
+    /**
+     * Test of getCompName method, of class Company.
+     */
+    @Test
+    public void testGetCompName() {
+        System.out.println("getCompName");
+        Company instance = new Company();
+        String expResult = "";
+        String result = instance.getCompName();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getAddress method, of class Company.
+     */
+    @Test
+    public void testGetAddress() {
+        System.out.println("getAddress");
+        Company instance = new Company();
+        Address expResult = null;
+        Address result = instance.getAddress();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getContact method, of class Company.
+     */
+    @Test
+    public void testGetContact() {
+        System.out.println("getContact");
+        Company instance = new Company();
+        Contact expResult = null;
+        Contact result = instance.getContact();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of getItems method, of class Company.
+     */
+    @Test
+    public void testGetItems() {
+        System.out.println("getItems");
+        
+        Company instance = new Company();
+       
+        //assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of copy method, of class Company.
+     */
+    @Test
+    public void testCopy() {
+        System.out.println("copy");
+        Company value = null;
+        Company instance = new Company();
+        Company expResult = null;
+        Company result = instance.copy(value);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of hashCode method, of class Company.
+     */
+    @Test
+    public void testHashCode() {
+        System.out.println("hashCode");
+        Company instance = new Company();
+        int expResult = 0;
+        int result = instance.hashCode();
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+
+    /**
+     * Test of equals method, of class Company.
+     */
+    @Test
+    public void testEquals() {
+        System.out.println("equals");
+        Object object = null;
+        Company instance = new Company();
+        boolean expResult = false;
+        boolean result = instance.equals(object);
+        assertEquals(expResult, result);
+        // TODO review the generated test code and remove the default call to fail.
+        fail("The test case is a prototype.");
+    }
+    
 }

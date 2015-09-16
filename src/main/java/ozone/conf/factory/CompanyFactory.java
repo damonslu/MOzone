@@ -10,19 +10,15 @@ import java.util.List;
 import ozone.domain.Company;
 import ozone.domain.Address;
 import ozone.domain.Contact;
-import ozone.domain.Product;
-
-
-
 
 /**
  *
  * @author DAMONSLU
  */
 public class CompanyFactory {
-    public static Company createCompany(String compName, Address address, Contact contact
+    public static Company createCompany(String compName, Address address, Contact contact)
                                               
-                                             ){
+                                             {
         Company company = new Company
                 .Builder(compName)
                 .address(address)

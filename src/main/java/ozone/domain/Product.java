@@ -5,13 +5,10 @@
 package ozone.domain;
 
 import java.io.Serializable;
-import java.util.Collection;
-import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
 //import javax.xml.bind.annotation.XmlRootElement;
 
 /**
@@ -40,9 +37,7 @@ public class Product implements Serializable {
            
        }
 
-    public void setDetails() {
-        throw new UnsupportedOperationException("Not yet implemented");
-    }
+    
        public static class Builder{
            private Long id;;
            private double price;
@@ -50,11 +45,13 @@ public class Product implements Serializable {
            private String description;
 
         public Builder(Long id) {
-            throw new UnsupportedOperationException("Not yet implemented");
+            
         }
+       
+    
 
         public Builder(double price) {
-            throw new UnsupportedOperationException("Not yet implemented");
+            
         }
         public Builder setId(Long id){
                this.id = id;
@@ -89,7 +86,7 @@ public class Product implements Serializable {
        public Long getId(){
            return id;
        }
-    private Collection<OrderItem> items;
+    
     //private String productname;
     //@Basic(optional = false)
     //@NotNull
@@ -112,18 +109,10 @@ public class Product implements Serializable {
     public Integer getQuantity() {
         return quantity;
     }
+    
 
     
-    @OneToMany(mappedBy = "productDetails")
-        public Collection<OrderItem> getItem(){
-        return items;
-    }
-    public void setProducts(Collection<OrderItem> items){
-        
-        this.items = items;
-    }
-
-        @Override
+           @Override
     public int hashCode() {
         int hash = 0;
         hash += (id != null ? id.hashCode() : 0);

@@ -1,18 +1,12 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-
 package ozone.repository;
 
+import ozone.domain.Company;
 import org.springframework.data.repository.CrudRepository;
-import ozone.domain.Customer;
 
 /**
- *
- * @author DAMONSLU
+ * Created by hashcode on 2015/04/13.
  */
-public interface CompanyRepository extends CrudRepository<Customer,Long> {
-}
+public interface CompanyRepository extends CrudRepository<Company,Long>{
+    public Company findByCode(String name);
 
+}

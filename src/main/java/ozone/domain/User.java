@@ -42,6 +42,11 @@ public class User implements Serializable {
     //@OneToMany(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
     List<Gym> gyms;
+    
+    private User() {
+    }
+    
+
 
     private User(Builder builder) {
         id= builder.id;
@@ -54,10 +59,7 @@ public class User implements Serializable {
         gyms = builder.gyms;
        }
 
-    private User() {
-    }
     
-
     public static class Builder {
 
         private Long id;

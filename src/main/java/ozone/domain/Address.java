@@ -15,9 +15,7 @@ import java.io.Serializable;
     public Address(){
         
     }
-    
-
-    
+   
     private Address(Builder builder) {
         postalCode=builder.postalCode;
         physicalAddress=builder.physicalAddress;

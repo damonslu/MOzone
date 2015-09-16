@@ -3,10 +3,10 @@
  * and open the template in the editor.
  */
 
-package com.cput.services.Impl;
+package ozone.service.Impl;
 
-import com.cput.model.Contact;
-import com.cput.services.ContactService;
+import ozone.domain.Contact;
+import ozone.service.ContactService;
 import java.util.List;
 
 /**

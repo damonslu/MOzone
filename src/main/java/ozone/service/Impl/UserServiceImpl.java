@@ -4,14 +4,14 @@
  * and open the template in the editor.
  */
 
-package ozone.services.Impl;
+package ozone.service.Impl;
 
 import ozone.domain.User;
-import ozone.respository.UserRepository;
-import ozone.services.UserService;
+import ozone.service.UserService;
+import ozone.service.Service;
 import java.util.List;
+import ozone.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 /**
  *
@@ -49,6 +49,41 @@ public class UserServiceImpl implements UserService{
     @Override
     public List<User> findAll() {
         return userRepository.findAll();
+    }
+
+    @Override
+    public void persist(User entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void merge(User entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<User> findInRange(int firstResult, int maxResults) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public long count() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<User> getEntitiesByProperName(String propertyName, String propertyValue) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void persist(User entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void merge(User entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
     
 }

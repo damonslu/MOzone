@@ -1,6 +1,6 @@
 package ozone.domain;
 
-import ozone.conf.factory.AddressFactory;
+import ozone.domain.AddressFactory;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -11,14 +11,14 @@ public class AddressTest {
     @Test
     public void testCreate() throws Exception {
         Address address = AddressFactory
-                .createContact("test@test.com","7557");
-        Assert.assertEquals("test@test.com",address.getEmail());
+                .createAddress("14 bloemhof ","7557","60 POBOX");
+        Assert.assertEquals("14 Bloemhof",address.getPAddress());
     }
 
     @Test
     public void testUpdate() throws Exception {
         Address address = AddressFactory
-                .createContact("test@test.com","7557");
+                .createAddress("14 Bloemhof","7557","60 POBOX");
 
       /*Address copiedaddress = new Address
                 .Builder("test@test.comm").copy(address).copy(address("700").build();

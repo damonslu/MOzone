@@ -20,7 +20,7 @@ import ozone.service.CompanyCrudService;
 @Transactional
 public class CompanyCrudServiceImpl implements CompanyCrudService {
 
-    @Autowired
+    /*@Autowired
     private GenericDAO<Company> dao;
 
     public final void setDao(final GenericDAO<Company> daoToSet) {
@@ -28,11 +28,10 @@ public class CompanyCrudServiceImpl implements CompanyCrudService {
         this.dao.setClazz(Company.class);
     }
 
-    @Override
-    public Company findById(Long id) {
+        public Company findById(Long id) {
         setDao(dao);
         return dao.findById(id);
-    }
+    }*/
 
     @Override
     public List<Company> findAll() {
@@ -55,8 +54,7 @@ public class CompanyCrudServiceImpl implements CompanyCrudService {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public void removeById(Long entityId) {
+        public void removeById(Long entityId) {
         setDao(dao);
         dao.removeById(entityId);
     }
@@ -71,13 +69,21 @@ public class CompanyCrudServiceImpl implements CompanyCrudService {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
-    @Override
-    public Company getByPropertyName(String name, String value) {
+        public Company getByCompanyName(String name, String value) {
+        throw new UnsupportedOperationException("Not supported yet.");
+    }
+
+        public List<Company> getEntitiesCompanyName(String name, String value) {
         throw new UnsupportedOperationException("Not supported yet.");
     }
 
     @Override
-    public List<Company> getEntitiesByProperName(String name, String value) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public Company find(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Company> getEntitiesByProperName(String propertyName, String propertyValue) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 }

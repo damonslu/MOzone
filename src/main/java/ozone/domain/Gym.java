@@ -7,6 +7,8 @@
 package ozone.domain;
 
 import java.io.Serializable;
+import java.util.Collection;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -14,54 +16,95 @@ import javax.persistence.Id;
 
 /**
  *
- * @author hashcode
+ * @author DAMONSLU
  */
 @Entity
-public class Gym implements Serializable {
+public class Gym implements Serializable{
     private static final long serialVersionUID = 1L;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-
-    private Gym(Builder builder) {
-       id = builder.id;
-       name= builder.name;
-    }
-
-    private Gym() {
-    }
+   @Embedded
+    private Address address;
+   @Embedded
+   private Contact contact;
     
-    public static class Builder{
-        private Long id;
-        private String name;
+       
+      public Gym(Builder builder) {
+        this.name=builder.name;
+        this.id=builder.id;
+        this.address=builder.address;
+        this.contact=builder.contact;
+
+    }
+       public Gym(){
+           
+       }
+
+ public static class Builder{
+           private Long id;
+           private String name;
+           private Address address;
+           private Contact contact;
+           
+        public Builder(Long id) {
+            throw new UnsupportedOperationException("Not yet implemented");
+        }
 
         public Builder(String name) {
-            this.name = name;
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
-        
-        public Builder id(Long value){
-            this. id = value;
+
+        public Builder setCompName(String name){
+               this.name = name;
+               return this;
+           }
+                             
+        public Builder address(Address value){
+            this.address=value;
             return this;
         }
-        
-        public Gym build(){
-            return new Gym(this);
+
+       public Gym build(){
+               return new Gym(this);
+           }
+
+        public Object contact(Contact contact) {
+            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
         }
-        
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-  
-    public String getName() {
+       }
+    
+       public Long getId(){
+           return id;
+       }
+    
+    public String getCompName() {
         return name;
     }
-  
-    
+public Address getAddress(){
+           return address;
+       }
+public Contact getContact(){
+           return contact;
+       }
+        
+       public Collection<Product> getItems(Collection<Product> products){
+        
+        return products;
+    }
 
+public Gym copy(Gym value){
+               //this.description = value.description;
+               this.id = value.id;
+                this.name = value.name;
+                this.address = value.address;
+                this.contact = value.contact;
+                this.products=value.products;
+
+                  return this;
+}
+           
     @Override
     public int hashCode() {
         int hash = 0;
@@ -76,15 +119,8 @@ public class Gym implements Serializable {
             return false;
         }
         Gym other = (Gym) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
+        return (this.id != null || other.id == null) && (this.id == null || this.id.equals(other.id));
     }
 
-    @Override
-    public String toString() {
-        return "com.kabaso.askweb.domain.Gym[ id=" + id + " ]";
-    }
     
 }

@@ -7,15 +7,11 @@
 package ozone.domain;
 
 import java.io.Serializable;
-import java.util.Collection;
-import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
 
 /**
  *
@@ -32,16 +28,12 @@ public class Company implements Serializable{
     private Address address;
    @Embedded
    private Contact contact;
-    @OneToMany
-    @JoinColumn(name = "prod_id")
-    private Collection<Product> products;
-       
+           
       public Company(Builder builder) {
         this.compName=builder.compName;
         this.id=builder.id;
         this.address=builder.address;
         this.contact=builder.contact;
-        this.products=builder.products;
 
     }
        public Company(){
@@ -53,7 +45,7 @@ public class Company implements Serializable{
            private String compName;
            private Address address;
            private Contact contact;
-           private List<Product> products;
+          
            
         public Builder(Long id) {
             throw new UnsupportedOperationException("Not yet implemented");
@@ -73,11 +65,7 @@ public class Company implements Serializable{
             return this;
         }
 
-        public Builder setProduct(List<Product> value){
-            this.products=value;
-            return this;
-        } 
-       public Company build(){
+              public Company build(){
                return new Company(this);
            }
 
@@ -100,10 +88,7 @@ public Contact getContact(){
            return contact;
        }
         
-       public Collection<Product> getItems(Collection<Product> products){
-        
-        return products;
-    }
+     
 
 public Company copy(Company value){
                //this.description = value.description;
@@ -111,7 +96,6 @@ public Company copy(Company value){
                 this.compName = value.compName;
                 this.address = value.address;
                 this.contact = value.contact;
-                this.products=value.products;
 
                   return this;
 }

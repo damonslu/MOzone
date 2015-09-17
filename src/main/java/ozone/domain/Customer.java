@@ -3,6 +3,7 @@ package ozone.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
+import ozone.domain.*;
 
 /**
  * 
@@ -19,17 +20,18 @@ public class Customer  implements Serializable{
     @Embedded
     private Contact contact;
     @Embedded
-    private Customeraddress address;
+    private Address address;
     @Embedded
     private Demographic demo;
     @OneToMany
     @JoinColumn(name = "cust_id")
-    private List<Orderdetails> orderdetails;
+    private List<OrderItem> orderitems;
 
     public Customer(Name name, 
-            Customeraddress address, 
+            Address address, 
             Contact contact, 
-            Demographic demo) {
+            Demographic demo,
+            List<OrderItem> orderitems) {
  
     }
     public Customer(){
@@ -43,7 +45,7 @@ public class Customer  implements Serializable{
         return name;
     }
 
-    public Customeraddress getAddress() {
+    public Address getAddress() {
         return address;
     }
     public Contact getContact(){
@@ -53,8 +55,8 @@ public class Customer  implements Serializable{
         return demo;
     }
 
-    public List<Orderdetails> getOrderdetails() {
-        return orderdetails;
+    public List<OrderItem> getOrderItems() {
+        return orderitems;
     }
 
     public Customer(Builder builder) {
@@ -63,7 +65,7 @@ public class Customer  implements Serializable{
         this.name = builder.name;
         this.contact = builder.contact;
         this.demo = builder.demo;
-        //this.orderdetails=builder.orderdetails;
+        this.orderitems=builder.orderitems;
         //this.name=builder.name;
     }
 
@@ -71,42 +73,39 @@ public class Customer  implements Serializable{
         private Long id;
         //private String name;
         private Name name;
-        private Customeraddress address;
+        private Address address;
         private Contact contact;
         private Demographic demo;
-        //private List<Orderdetails> orderdetails;
+        private List<OrderItem> orderitems;
 
-        public Builder(Name name) {
-            throw new UnsupportedOperationException("Not yet implemented");
-        }
-
-        public Builder id(Long value){
-            this.id=value;
+       
+        public Builder getId(Long id){
+            this.id=id;
             return this;
         }
-        public Builder name(Name value){
-            this.name=value;
+        public Builder getName(Name name){
+            this.name=name;
             return this;
         }
-        public Builder address(Customeraddress value){
-            this.address=value;
+        public Builder getAddress(Address address){
+            this.address=address;
             return this;
         }
-        public Builder contact(Contact value){
-            this.contact=value;
+        public Builder getContact(Contact contact){
+            this.contact=contact;
             return this;
         }
-        public Builder demo(Demographic value){
-            this.demo=value;
+        public Builder getDemo(Demographic demo){
+            this.demo=demo;
             return this;
         }
-        /*public Builder orderdetails(List<Orderdetails> value){
-            this.orderdetails = value;
+        public Builder getOrderitems(List<OrderItem> orderitems){
+            this.orderitems = orderitems;
             return this;
-        }*/
+        }
         
         public Builder copy(Customer value){
-            //this.orderdetails=value.orderdetails;
+            //this.orderitems=value.orderitems;
             this.address=value.address;
             this.contact = value.contact;
             this.demo = value.demo;

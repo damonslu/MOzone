@@ -1,42 +1,52 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ozone.domain;
 
-import java.io.Serializable;
 import javax.persistence.Embeddable;
+import java.io.Serializable;
 
 /**
- *
- * @author Lucrecia
+ * Created by hashcode on 2015/04/20.
  */
 @Embeddable
-public class Name implements Serializable{
-    private String firstname;
-    private String lastname;
-    
-    public Name(String firstname, String lastname){
-        
+public class Name implements Serializable {
+    private String firstName;
+    private String lastName;
+
+    public Name() {
     }
-    public Name(){
-        
+
+    private Name(Builder builder) {
+        firstName=builder.firstName;
+        lastName=builder.lastName;
     }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
    
-    public String getFirstname() {
-        return firstname;
-    }
+    public static class Builder{
+        private String firstName;
+        private String lastName;
+        
+        public Builder(String firstName) {
+            this.firstName = firstName;
+        }
 
-    public void setFirstname(String firstname) {
-        this.firstname = firstname;
-    }
+        public Builder lastName(String value){
+            this.lastName=value;
+            return this;
+        }
+   
+        public Builder copy(Name value){
+            this.lastName=value.lastName;
+            this.firstName=value.firstName;
 
-    public String getLastname() {
-        return lastname;
-    }
+            return this;
+        }
 
-    public void setLastname(String lastname) {
-        this.lastname = lastname;
+        public Name build(){
+            return new Name(this);
+        }
     }
 
 }

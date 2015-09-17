@@ -14,8 +14,8 @@ import java.util.*;
  */
 public class CustomerFactory {
     
-    public static Customer createCustomer(Long value, Name name, Customeraddress address, 
-            Contact contact, Demographic demo){
+    public static Customer createCustomer(Name name, Address address, 
+            Contact contact, Demographic demo, List<OrderItem> orderitems){
         
         Customer customer = new Customer
         //.Builder.id(value)
@@ -24,6 +24,7 @@ public class CustomerFactory {
                 .address(address)
                 .contact(contact)
                 .demo(demo)
+                .orderitems(orderitems)
                              .build();
         return customer;
         /*customer.name(name);

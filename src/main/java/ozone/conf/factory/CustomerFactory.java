@@ -18,12 +18,10 @@ public class CustomerFactory {
             Contact contact, Demographic demo, List<OrderItem> orderitems){
         
         Customer customer = new Customer
-        //.Builder.id(value)
-                //.id(value.get(id))
-              .Builder(name)
-                .address(address)
-                .contact(contact)
-                .demo(demo)
+                 .Builder(name.getFirstName())
+                .address(address.getPAddress(),address.getPOaddress(), address.getPostalCode())
+                .contact(contact.getCell(), contact.getEmail(), contact.getPhone())
+                .demo(demo.getGender(),demo.getRace())
                 .orderitems(orderitems)
                              .build();
         return customer;

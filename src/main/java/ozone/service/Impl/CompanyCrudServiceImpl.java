@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package za.ac.cput.company.services.crud.Impl;
+package ozone.service.Impl;
 
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;

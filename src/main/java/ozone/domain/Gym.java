@@ -8,11 +8,14 @@ package ozone.domain;
 
 import java.io.Serializable;
 import java.util.Collection;
+import java.util.List;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToOne;
 
 /**
  *
@@ -24,42 +27,46 @@ public class Gym implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
-    private String name;
+    private String gymName;
    @Embedded
     private Address address;
    @Embedded
    private Contact contact;
-    
-       
+   @OneToOne
+   @JoinColumn(name = "user_id")
+   private List<User> users;
+      
+      
       public Gym(Builder builder) {
-        this.name=builder.name;
+        this.gymName=builder.gymName;
         this.id=builder.id;
         this.address=builder.address;
         this.contact=builder.contact;
-
-    }
-       public Gym(){
+        this.users= builder.users;
+      }
+      public Gym(){
            
        }
-
+       
  public static class Builder{
            private Long id;
-           private String name;
+           private String gymName;
            private Address address;
            private Contact contact;
+           private List<User> users;
            
-        public Builder(Long id) {
-            throw new UnsupportedOperationException("Not yet implemented");
-        }
-
-        public Builder(String name) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-
-        public Builder setCompName(String name){
-               this.name = name;
+       
+       public Builder (String gymName){
+               this.gymName = gymName;
+           }
+       public Builder users(List<User> users){
+               this.users = users;
                return this;
            }
+       public Builder contact(Contact value){
+            this.contact=value;
+            return this;
+        }
                              
         public Builder address(Address value){
             this.address=value;
@@ -70,17 +77,14 @@ public class Gym implements Serializable{
                return new Gym(this);
            }
 
-        public Object contact(Contact contact) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
        }
     
        public Long getId(){
            return id;
        }
     
-    public String getCompName() {
-        return name;
+    public String getGymName() {
+        return gymName;
     }
 public Address getAddress(){
            return address;
@@ -88,19 +92,18 @@ public Address getAddress(){
 public Contact getContact(){
            return contact;
        }
+public List<User> getUsers(List<User> users){
         
-       public Collection<Product> getItems(Collection<Product> products){
-        
-        return products;
+        return users;
     }
-
+     
 public Gym copy(Gym value){
                //this.description = value.description;
                this.id = value.id;
-                this.name = value.name;
+                this.gymName = value.gymName;
                 this.address = value.address;
                 this.contact = value.contact;
-                this.products=value.products;
+                this.users=value.users;
 
                   return this;
 }

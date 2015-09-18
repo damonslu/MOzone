@@ -41,17 +41,17 @@ public class Customer  implements Serializable{
         return id;
     }
 
-        public Name getName(){
+        public Name name(){
         return name;
     }
 
-    public Address getAddress() {
+    public Address address() {
         return address;
     }
-    public Contact getContact(){
+    public Contact contact(){
         return contact;
     }
-    public Demographic getDemographic(){
+    public Demographic demographic(){
         return demo;
     }
 

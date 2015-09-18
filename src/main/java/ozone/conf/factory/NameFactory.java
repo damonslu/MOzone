@@ -6,21 +6,22 @@
 
 package ozone.domain;
 
+import java.util.List;
 import ozone.domain.Address;
 
 /**
  *
  * @author admin
  */
-public class AddressFactory {
+public class NameFactory {
     
-    public static Address createAddress(String postalCode,String physicalAddress, String postalAddress){
-
-        Address address = new Address
-                .Builder(postalCode)
-                .physicalAddress(physicalAddress)
-                .postalAddress(postalAddress)
+    public static Name createName(String firstName, String lastName){
+            
+        Name name = new Name
+                .Builder(firstName)
+                .lastName(lastName)
                 .build();
-        return address;
+    
+               return name;
     }
 }

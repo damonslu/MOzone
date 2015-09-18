@@ -7,13 +7,21 @@
 package ozone.service;
 
 import java.util.List;
-import ozone.domain.Product;
+import ozone.domain.Customer;
+import ozone.domain.Gym;
 import ozone.domain.User;
 
 /**
  *
- * @author hashcode
+ * @author DAMONSLU
  */
-public interface UserService extends Service<User,Long>{
-    List<User> getUsers();
+public interface GymService {
+    
+     List<Gym> getAllGyms();
+     List<User> getUsers(Long id);
+
+    public List<Customer> getCustomers(Long id);
+}
+
+    
 }

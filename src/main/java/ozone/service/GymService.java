@@ -7,9 +7,8 @@
 package ozone.service;
 
 import java.util.List;
-import ozone.domain.Customer;
 import ozone.domain.Gym;
-import ozone.domain.User;
+import ozone.domain.Customer;
 
 /**
  *
@@ -18,10 +17,8 @@ import ozone.domain.User;
 public interface GymService {
     
      List<Gym> getAllGyms();
-     List<User> getUsers(Long id);
+     List<Customer> getCustomer(Long id);
 
-    public List<Customer> getCustomers(Long id);
 }
 
     
-}

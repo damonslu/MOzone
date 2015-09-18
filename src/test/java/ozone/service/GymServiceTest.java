@@ -71,8 +71,8 @@ public class GymServiceTest extends AbstractTestNGSpringContextTests{
         customers.add(firstCustomer);
           gym .add(newGym);
         Gym gym;
-        gym = GymFactory
-                .createGym("Vex",address, contact, List<Customer> customers);
+        gym = GymFactory.
+                .createGym("Vex",address, contact, List<Customer> customer);
 
         repository.save(gym);
         id=gym.getId();
@@ -82,8 +82,8 @@ public class GymServiceTest extends AbstractTestNGSpringContextTests{
 
     @Test
     public void testGetGymCLient() throws Exception {
-        List<Customer> customers = service.getCustomers(id);
-        Assert.assertTrue(customers.size() == 2);
+        List<Customer> customer = service.getCustomer(id);
+        Assert.assertTrue(customer.size() == 2);
 
     }
 }

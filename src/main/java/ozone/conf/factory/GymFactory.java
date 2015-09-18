@@ -5,7 +5,7 @@ import ozone.domain.Gym;
 
 import ozone.domain.Address;
 import ozone.domain.Contact;
-import ozone.domain.User;
+import ozone.domain.Customer;
 
 /**
  * Created by hashcode on 2015/05/03.
@@ -13,13 +13,13 @@ import ozone.domain.User;
 public class GymFactory {
 
     public static Gym createGym(String name, Address address,
-                                Contact contact, List<User> users)
+                                Contact contact, List<Customer> customer)
                                  {
         Gym gym = new Gym
                 .Builder(name)
                 .address(address)
                 .contact(contact)
-                .users(users)
+                .customer(customer)
                 .build();
         return gym;
     }

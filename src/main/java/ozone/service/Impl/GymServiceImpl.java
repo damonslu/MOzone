@@ -6,7 +6,7 @@
 
 package ozone.service.Impl;
 import ozone.domain.Gym;
-import ozone.domain.User;
+import ozone.domain.Customer;
 import ozone.repository.GymRepository;
 import ozone.service.GymService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,9 +33,9 @@ public class GymServiceImpl implements GymService{
     }
 
     @Override
-    public List<User> getUser(Long id) {
+    public List<Customer> getCustomer(Long id) {
 
-        return repository.findOne(id).getUsers();
+        return repository.findOne(id).getCustomer();
     }
 
 

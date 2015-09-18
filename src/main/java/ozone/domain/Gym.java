@@ -33,8 +33,8 @@ public class Gym implements Serializable{
    @Embedded
    private Contact contact;
    @OneToOne
-   @JoinColumn(name = "user_id")
-   private List<User> users;
+   @JoinColumn(name = "customer_id")
+   private List<Customer> customer;
       
       
       public Gym(Builder builder) {
@@ -42,7 +42,7 @@ public class Gym implements Serializable{
         this.id=builder.id;
         this.address=builder.address;
         this.contact=builder.contact;
-        this.users= builder.users;
+        this.customer= builder.customer;
       }
       public Gym(){
            
@@ -53,14 +53,14 @@ public class Gym implements Serializable{
            private String gymName;
            private Address address;
            private Contact contact;
-           private List<User> users;
+           private List<Customer> customer;
            
        
        public Builder (String gymName){
                this.gymName = gymName;
            }
-       public Builder users(List<User> users){
-               this.users = users;
+       public Builder customer(List<Customer> customer){
+               this.customer = customer;
                return this;
            }
        public Builder contact(Contact value){
@@ -92,9 +92,9 @@ public Address getAddress(){
 public Contact getContact(){
            return contact;
        }
-public List<User> getUsers(List<User> users){
+public List<Customer> getCustomer(List<Customer> customer){
         
-        return users;
+        return customer;
     }
      
 public Gym copy(Gym value){
@@ -103,7 +103,7 @@ public Gym copy(Gym value){
                 this.gymName = value.gymName;
                 this.address = value.address;
                 this.contact = value.contact;
-                this.users=value.users;
+                this.customer=value.customer;
 
                   return this;
 }

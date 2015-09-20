@@ -51,8 +51,7 @@ public String getDescription(){
 public List<Product> getProducts() {
         return products;
     }
-
-       
+      
       private Category(Category.Builder builder) {
         this.catName=builder.catName;
         this.id=builder.id;

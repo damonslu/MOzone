@@ -15,7 +15,7 @@ import ozone.service.CustomerService;
  * Created by hashcode on 2015/05/10.
  */
 @RestController
-@RequestMapping(value="/faculty/**")
+@RequestMapping(value="/customer/**")
 public class CustomerPage {
     @Autowired
     private CustomerService service;

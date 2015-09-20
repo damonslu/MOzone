@@ -8,8 +8,11 @@ import java.util.List;
  * @author Administrator
  */
 public interface CustomerService {
-    List<Customer> getCustomers();
-
+    /**
+     *
+     * @return
+     */
+    public List<Customer> getCustomers();
     //public int getNumber(Department it);
     
 }

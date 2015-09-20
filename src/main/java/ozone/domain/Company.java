@@ -7,11 +7,16 @@
 package ozone.domain;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -28,23 +33,43 @@ public class Company implements Serializable{
     private Address address;
    @Embedded
    private Contact contact;
+   @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="Company_id")
+    private List<Product> products;
            
       public Company(Builder builder) {
         this.compName=builder.compName;
         this.id=builder.id;
         this.address=builder.address;
         this.contact=builder.contact;
+        this.products=builder.products;
 
     }
        public Company(){
            
        }
-
+       public Long getId(){
+           return id;
+       }
+    
+    public String getCompName() {
+        return compName;
+    }
+public Address getAddress(){
+           return address;
+       }
+public Contact getContact(){
+           return contact;
+       }
+  public  List<Product> getProduct(){
+      return products;
+  }
  public static class Builder{
            private Long id;
            private String compName;
            private Address address;
            private Contact contact;
+           private List<Product> products;
           
            
         public Builder setId(Long id) {
@@ -64,27 +89,16 @@ public class Company implements Serializable{
             this.contact=value;
             return this;
         }
-
+        public Builder products(List<Product> value){
+            this.products=value;
+            return this;
+                                     
+          }
               public Company build(){
                return new Company(this);
            }
-
-               }
+   }
     
-       public Long getId(){
-           return id;
-       }
-    
-    public String getCompName() {
-        return compName;
-    }
-public Address getAddress(){
-           return address;
-       }
-public Contact getContact(){
-           return contact;
-       }
-        
      
 
 public Company copy(Company value){

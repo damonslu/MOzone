@@ -5,6 +5,7 @@
 package ozone.domain;
 
 import java.io.Serializable;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -26,9 +27,21 @@ public class Product implements Serializable {
     private Integer quantity;
     private String description;
     
-       //private String productID;
-       
-       private Product(Builder builder){
+            public Long getId(){
+           return id;
+       }
+   
+    public double getPrice() {
+        return price;
+    }
+    public String getDescription() {
+        return description;
+    }
+    public Integer getQuantity() {
+        return quantity;
+    }
+     
+    public Product(Builder builder){
            id = builder.id;
            price = builder.price;
            quantity = builder.quantity;
@@ -38,23 +51,17 @@ public class Product implements Serializable {
            
        }
 
-    
        public static class Builder{
            private Long id;;
            private double price;
            private Integer quantity;
            private String description;
 
-        public Builder(Long id) {
-            
+        public Builder(double price) {
+            this.price=price;
         }
        
-    
-
-        public Builder(double price) {
-            
-        }
-        public Builder setId(Long id){
+       public Builder id(Long id){
                this.id = id;
                return this;
            }
@@ -66,7 +73,8 @@ public class Product implements Serializable {
            public Builder setPrice(double price){
                this.price = price;
                return this;
-           }
+               }
+           
            public Builder setQuantity(Integer quantity){
                this.quantity = quantity;
                return this;
@@ -83,56 +91,4 @@ public class Product implements Serializable {
                return new Product(this);
            }
        }
-    @Id
-       public Long getId(){
-           return id;
-       }
-    
-    //private String productname;
-    //@Basic(optional = false)
-    //@NotNull
-    //@Column(name = "PRODUCTPRICE")
-    //private double productprice;
-
-    
-
-    /*public Productdetails(String productname, double productprice) {
-        this.productname = productname;
-        this.productprice = productprice;
-    }*/
-
-    public double getPrice() {
-        return price;
-    }
-    public String getDescription() {
-        return description;
-    }
-    public Integer getQuantity() {
-        return quantity;
-    }
-    
-
-    
-           @Override
-    public int hashCode() {
-        int hash = 0;
-        hash += (id != null ? id.hashCode() : 0);
-        return hash;
-    }
-
-    @Override
-    public boolean equals(Object object) {
-        // TODO: Warning - this method won't work in the case the id fields are not set
-        if (!(object instanceof Product)) {
-            return false;
-        }
-        Product other = (Product) object;
-        if ((this.id == null && other.id != null) || (this.id != null && !this.id.equals(other.id))) {
-            return false;
-        }
-        return true;
-    }
-
-    
-    
-}
+   }

@@ -1,8 +1,8 @@
 -------------------------------------------------------------------------------
 Test set: TestSuite
 -------------------------------------------------------------------------------
-Tests run: 8, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 2.07 sec <<< FAILURE!
-testCount(ozone.service.Impl.CompanyCrudServiceImplNGTest)  Time elapsed: 0.05 sec  <<< FAILURE!
+Tests run: 8, Failures: 7, Errors: 0, Skipped: 0, Time elapsed: 0.983 sec <<< FAILURE!
+testCount(ozone.service.Impl.CompanyCrudServiceImplNGTest)  Time elapsed: 0 sec  <<< FAILURE!
 java.lang.UnsupportedOperationException: Not supported yet.
 	at ozone.service.Impl.CompanyCrudServiceImpl.count(CompanyCrudServiceImpl.java:66)
 	at ozone.service.Impl.CompanyCrudServiceImplNGTest.testCount(CompanyCrudServiceImplNGTest.java:143)
@@ -18,7 +18,7 @@ testFindInRange(ozone.service.Impl.CompanyCrudServiceImplNGTest)  Time elapsed: 
 java.lang.UnsupportedOperationException: Not supported yet.
 	at ozone.service.Impl.CompanyCrudServiceImpl.findInRange(CompanyCrudServiceImpl.java:61)
 	at ozone.service.Impl.CompanyCrudServiceImplNGTest.testFindInRange(CompanyCrudServiceImplNGTest.java:129)
-testGetEntitiesByProperName(ozone.service.Impl.CompanyCrudServiceImplNGTest)  Time elapsed: 0 sec  <<< FAILURE!
+testGetEntitiesByProperName(ozone.service.Impl.CompanyCrudServiceImplNGTest)  Time elapsed: 0.015 sec  <<< FAILURE!
 java.lang.UnsupportedOperationException: Not supported yet.
 	at ozone.service.Impl.CompanyCrudServiceImpl.getEntitiesByProperName(CompanyCrudServiceImpl.java:71)
 	at ozone.service.Impl.CompanyCrudServiceImplNGTest.testGetEntitiesByProperName(CompanyCrudServiceImplNGTest.java:159)

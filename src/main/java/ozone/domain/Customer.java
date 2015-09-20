@@ -3,7 +3,6 @@ package ozone.domain;
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.List;
-import ozone.domain.*;
 
 /**
  * 
@@ -27,42 +26,38 @@ public class Customer  implements Serializable{
     @JoinColumn(name = "cust_id")
     private List<OrderItem> orderitems;
 
-    public Customer(Name name, 
-            Address address, 
-            Contact contact, 
-            Demographic demo,
-            List<OrderItem> orderitems) {
- 
-    }
+  
     public Customer(){
     }
-
-        public Long getId() {
+      public Long getId() {
         return id;
     }
 
-        public Name name(){
+    public Name getName() {
         return name;
     }
 
-    public Address address() {
+    public Address getAddress() {
         return address;
     }
-    public Contact contact(){
+    public Contact getContact() {
         return contact;
     }
-    public Demographic demographic(){
+    public Demographic getDemo() {
         return demo;
     }
 
-    public List<OrderItem> getOrderItems() {
+    public List<OrderItem> getOrderItem() {
         return orderitems;
     }
 
+
+    
+
     public Customer(Builder builder) {
-        this.address=builder.address;
         this.id=builder.id;
         this.name = builder.name;
+        this.address=builder.address;
         this.contact = builder.contact;
         this.demo = builder.demo;
         this.orderitems=builder.orderitems;
@@ -72,38 +67,38 @@ public class Customer  implements Serializable{
     public static class Builder{
         private Long id;
         //private String name;
-        private Name name;
-        private Address address;
-        private Contact contact;
-        private Demographic demo;
+        private Name name; 
+        private Address address; // = new Address();
+        private Contact contact; // = new Contact();
+        private Demographic demo; // = new Demographic();
         private List<OrderItem> orderitems;
 
-       
-        public Builder getId(Long id){
-            this.id=id;
-            return this;
-        }
-        public Builder getName(Name name){
-            this.name=name;
-            return this;
-        }
-        public Builder getAddress(Address address){
-            this.address=address;
-            return this;
-        }
-        public Builder getContact(Contact contact){
-            this.contact=contact;
-            return this;
-        }
-        public Builder getDemo(Demographic demo){
-            this.demo=demo;
-            return this;
-        }
-        public Builder getOrderitems(List<OrderItem> orderitems){
-            this.orderitems = orderitems;
-            return this;
-        }
         
+       public Builder(Name name){
+        this.name = name;
+    }
+    public Builder id(Long value) {
+       this.id =value;
+       return this;
+    }
+
+    public Builder address(Address value) {
+        this.address = value;
+        return this;
+    }
+    public Builder contact(Contact value){
+        this.contact=value;
+        return this;
+    }
+    public Builder demo(Demographic value){
+        this.demo=value;
+        return this;
+    }
+
+    public Builder orderitems(List<OrderItem> value) {
+        this.orderitems=value;
+        return this;
+    }
         public Builder copy(Customer value){
             //this.orderitems=value.orderitems;
             this.address=value.address;
@@ -118,5 +113,5 @@ public class Customer  implements Serializable{
             return new Customer(this);
         }
 
-    }
+            }
 }

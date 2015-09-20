@@ -25,6 +25,7 @@ public class Product implements Serializable {
     private double price;
     private Integer quantity;
     private String description;
+    
        //private String productID;
        
        private Product(Builder builder){

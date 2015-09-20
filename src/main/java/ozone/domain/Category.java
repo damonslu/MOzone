@@ -8,10 +8,15 @@ package ozone.domain;
 
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
 
 
 /**
@@ -26,46 +31,14 @@ public class Category implements Serializable{
     private Long id;
     private String catName;
     private String description;
-   
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="Category_id")
+    private List<Product> products;
    
     public Category(){
            
        }
-       
-      private Category(Category.Builder builder) {
-        this.catName=builder.catName;
-        this.id=builder.id;
-        this.description=builder.description;
-      }
-
- public static class Builder{
-           private Long id;
-           private String catName;
-           private String description;
-
-        public Builder(String cat_Name) {
-            throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-        }
-           
-          public Builder setCatName(String catName){
-               this.catName = catName;
-               return this;
-           }
-          public Builder setId(Long id){
-               this.id = id;
-               return this;
-           }
-          public Builder setDescription(String  description){
-               this.description = description;
-               return this;
-           }
-                           
-         public Category build(){
-               return new Category(this);
-           }
-       }
-    
-       public Long getId(){
+     public Long getId(){
            return id;
        }
     
@@ -75,13 +48,56 @@ public class Category implements Serializable{
 public String getDescription(){
            return description;
        }
-public Category copy(Category value){
+public List<Product> getProducts() {
+        return products;
+    }
+
+       
+      private Category(Category.Builder builder) {
+        this.catName=builder.catName;
+        this.id=builder.id;
+        this.description=builder.description;
+        this.products=builder.products;
+      }
+
+ public static class Builder{
+           private Long id;
+           private String catName;
+           private String description;
+           private List<Product> products;
+
+       
+          public Builder(String catName){
+               this.catName = catName;
+           }
+          public Builder setId(Long id){
+               this.id = id;
+               return this;
+           }
+          public Builder setDescription(String  description){
+               this.description = description;
+               return this;
+           }
+          public Builder setProduct(List<Product> value){
+            this.products=value;
+            return this;
+                                     
+          }
+    
+      
+public Builder copy(Category value){
                //this.description = value.description;
                this.id = value.id;
                 this.catName = value.catName;
                 this.description = value.description;
+                this.products = value.products;
                 
                   return this;
+}
+                  
+                   public Category build(){
+               return new Category(this);
+           }
 }
            
     @Override

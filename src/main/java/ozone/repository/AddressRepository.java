@@ -4,21 +4,12 @@
  * and open the template in the editor.
  */
 
-package ozone.service;
-
-import java.util.List;
-import ozone.domain.Gym;
-import ozone.domain.Customer;
+package ozone.repository;
 
 /**
  *
  * @author DAMONSLU
  */
-public interface GymService {
+public interface AddressRepository {
     
-     List<Gym> getAllGyms();
-     List<Customer> getCustomer(Long id);
-
 }
-
-    

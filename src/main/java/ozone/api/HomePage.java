@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import ozone.domain.Customer;
 import ozone.domain.Product;
 
 /**
@@ -33,11 +34,12 @@ public class HomePage {
         return product;
     }
 
-    @RequestMapping(value = "/products", method = RequestMethod.GET)
-    public List<Product> getProducts(){
+    @RequestMapping(value = "/Customers", method = RequestMethod.GET)
+    public List<Customer> getCustomer(){
 
 
-      service.getProducts();
+     // service.class(); //getCustomer();
+        return null;
     }
 
 

@@ -1,63 +1,63 @@
 package ozone.service.Impl;
 
-import ozone.domain.Company;
-import ozone.repository.CompanyRepository;
-import ozone.service.CompanyCrudService;
+import ozone.domain.Product;
+import ozone.domain.Category;
+import ozone.repository.ProductRepository;
+import ozone.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
-import ozone.domain.Customer;
 
 /**
  * Created by hashcode on 2015/05/10.
  */
 @Service
-public class CompanyCrudServiceImpl implements CompanyCrudService{
+public class ProductServiceImpl implements ProductService{
     @Autowired
-    private CompanyRepository repository;
-        public List<Company> getAllFAculties() {
-        List<Company> companies = new ArrayList<>();
-        Iterable<Company> values = repository.findAll();
-        for (Company value : values) {
-            companies.add(value);
+    private ProductRepository repository;
+        public List<Product> getAllProducts() {
+        List<Product> products = new ArrayList<>();
+        Iterable<Product> values = repository.findAll();
+        for (Product value : values) {
+            products.add(value);
         }
-        return companies;
-    }
-
-        public String getCustomer(Long id) {
-
-        return repository.findOne(id).getCompName();
+        return products;
     }
 
     @Override
-    public Company find(Long id) {
+    public List<Product> getProducts() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void persist(Company entity) {
+    public Product find(Long id) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void merge(Company entity) {
+    public void persist(Product entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public void remove(Company entity) {
+    public void merge(Product entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Company> findAll() {
+    public void remove(Product entity) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
     @Override
-    public List<Company> findInRange(int firstResult, int maxResults) {
+    public List<Product> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Product> findInRange(int firstResult, int maxResults) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
@@ -67,10 +67,7 @@ public class CompanyCrudServiceImpl implements CompanyCrudService{
     }
 
     @Override
-    public List<Company> getEntitiesByProperName(String propertyName, String propertyValue) {
+    public List<Product> getEntitiesByProperName(String propertyName, String propertyValue) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
-
-
 }

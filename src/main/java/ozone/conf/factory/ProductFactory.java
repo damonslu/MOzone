@@ -5,11 +5,6 @@
 package ozone.conf.factory;
 
 import ozone.domain.Product;
-
-import java.util.*;
-import javax.websocket.ClientEndpointConfig;
-import java.util.*;
-
 /**
  *
  * @author boniface

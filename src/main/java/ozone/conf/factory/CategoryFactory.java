@@ -6,7 +6,9 @@
 
 package ozone.conf.factory;
 
+import java.util.List;
 import ozone.domain.Category;
+import ozone.domain.Product;
 
 /**
  *
@@ -14,12 +16,14 @@ import ozone.domain.Category;
  */
  public class CategoryFactory {
     
-    private static Category createCategory(String cat_Name,String description, Long id){
+    private static Category createCategory(String cat_Name,String description, Long id,
+            List<Product> products){
 
         Category category = new Category
                 .Builder(cat_Name)
                 .setDescription(description)
                 .setId(id)
+                .setProduct(products)
                 .build();
         return category;
     }

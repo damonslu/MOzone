@@ -13,6 +13,6 @@ import ozone.domain.Category;
  *
  * @author DAMONSLU
  */
-public interface CategoryRepository extends CrudRepository<Category,Long> {
+public interface CategoryRepository extends CrudRepository<Category, Long> {
 }
 

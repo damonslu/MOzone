@@ -5,11 +5,16 @@
 package ozone.domain;
 
 import java.io.Serializable;
+import java.util.List;
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -22,60 +27,71 @@ public class OrderItem implements Serializable {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String itemname;
-    private Integer itemquantity;
+    private Integer itemquantity;  
+    private String description;
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER)
+    @JoinColumn(name="Order_id")
+    private List<Product> products;
     
-    private OrderItem(Builder builder){
-    
-        id = builder.id;
-        itemname = builder.itemname;
-        itemquantity = builder.itemquantity;
-    } 
-        public OrderItem(){
-            
-        }
-    public static class Builder{
-    private Long id;
-    private String itemname;
-    private Integer itemquantity;
-    
-    public Builder setId(Long id){
-        this.id = id;
-        return this;
+   public List<Product> getProduct(){
+        return products;
     }
-    public Builder setName(String itemname){
-        this.itemname = itemname;
-        return this;
-    }
-    public Builder setQauntity(Integer itemquantity){
-        this.itemquantity = itemquantity;
-        return this;
-    }
-      public OrderItem build(){
-          return new OrderItem(this);
-      }
-    }   
-        @ManyToOne
-    private Category category;
-    public Category getCategory(){
-        return category;
-    }
-    @ManyToOne
-    private Product productdetails;
-    public Product getProduct(){
-        return productdetails;
-    }
-
      public Long getId(){
          return id;
      } 
-
     public String getItemname() {
         return itemname;
     }
     public int getItemquantity() {
         return itemquantity;
     }
-
+public String getDescription() {
+        return description;
+    }
+public OrderItem(){
+}
+    
+    private OrderItem(Builder builder){
+    
+        id = builder.id;
+        itemname = builder.itemname;
+        itemquantity = builder.itemquantity;
+        description= builder.description;
+        products= builder.products;
+    } 
+        
+    public static class Builder{
+    private Long id;
+    private String itemname;
+    private Integer itemquantity;
+    private String description;
+    private List<Product> products;
+    
+    public Builder setId(Long id){
+        this.id = id;
+        return this;
+    }
+    public Builder(String itemname){
+        this.itemname = itemname;
+    }
+    public Builder setQauntity(Integer itemquantity){
+        this.itemquantity = itemquantity;
+        return this;
+    }
+     
+    public Builder setDescription(String description){
+        this.description = description;
+        return this;
+    }
+    public Builder setProducts(List<Product> products){
+        this.products = products;
+        return this;
+    }
+      public OrderItem build(){
+          return new OrderItem(this);
+      }
+    }   
+     
     @Override
     public int hashCode() {
         int hash = 0;

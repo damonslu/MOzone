@@ -19,18 +19,39 @@ public class Demographic implements Serializable{
     public String getGender() {
         return gender;
     }
-
-    public void setGender(String gender) {
-        this.gender = gender;
-    }
-
     public String getRace() {
         return race;
     }
-
-    public void setRace(String race) {
-        this.race = race;
+    public Demographic(){
+        
     }
-    
-    
+private Demographic(Builder builder) {
+        gender=builder.gender;
+        race=builder.race;
+    }
+     
+    public static class Builder{
+        private String gender;
+        private String race;
+        
+        public Builder(String gender) {
+            this.gender = gender;
+        }
+
+        public Builder race(String value){
+            this.race=value;
+            return this;
+        }
+   
+        public Builder copy(Demographic value){
+            this.race=value.race;
+            this.gender=value.gender;
+
+            return this;
+        }
+
+        public Demographic build(){
+            return new Demographic(this);
+        }
+    }
 }

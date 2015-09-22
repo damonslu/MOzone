@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 
-package ozone.domain;
+package ozone.conf.factory;
 
-import java.util.List;
-import ozone.domain.Address;
+import ozone.domain.Name;
 
 /**
  *

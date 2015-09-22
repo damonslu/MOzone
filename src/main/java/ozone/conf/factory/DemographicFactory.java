@@ -13,9 +13,10 @@ import ozone.domain.Demographic;
 public class DemographicFactory {
     
     public static Demographic getDemographic(String gender, String race){
-        Demographic demo = new Demographic();
-        demo.setGender(gender);
-        demo.setRace(race);
+        Demographic demo = new Demographic.Builder(gender)
+           .race(race)
+                .build();
+           
         
         return demo;
         

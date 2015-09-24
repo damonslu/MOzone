@@ -1,27 +1,25 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package ozone;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+//import org.springframework.context.annotation.ComponentScan;
+//import org.springframework.context.annotation.Configuration;
+//import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+//import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
 /**
+ * Hello world!
  *
- * @author admin
  */
-//GitTest
 //@Configuration
 //@ComponentScan
-//EnableWebMvc
+//@EnableWebMvc
 @EnableAutoConfiguration
-public class App {
-    
-    public static void main(String[] args){
-        
-        System.out.println("Hello World");
-        SpringApplication.run(App.class, args);
+public class App 
+{
+    public static void main( String[] args )
+    {
+        System.out.println( "Hello World!" );
+        SpringApplication.run(App.class,args);
     }
-    
 }

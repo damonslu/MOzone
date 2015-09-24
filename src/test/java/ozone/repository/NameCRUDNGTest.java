@@ -1,37 +1,36 @@
 package ozone.repository;
 
 import ozone.App;
-import ozone.domain.Product;
+import ozone.domain.Name;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
-import ozone.conf.factory.ProductFactory;
+import ozone.conf.factory.NameFactory;
 
 /**
  * Created by hashcode on 2015/04/13.
  */
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
-public class ProductCRUDNGTest extends AbstractTestNGSpringContextTests{
+public class NameCRUDNGTest extends AbstractTestNGSpringContextTests{
     private Long id;
 
     @Autowired
-    private ProductRepository repository;
+    private NameRepository repository;
     @Test
     public void create() throws Exception {
         //System.out.println("Hello world");
-        Product product = ProductFactory.createProduct(500, 4, "GucciBag");             
-             repository.save(product);
-             id = product.getId();
-        Assert.assertNotNull(product);
+        Name name = NameFactory.createName("Zack", "DuPeez");
+             repository.save(name);
+             Assert.assertNotNull(name);
     }
     @Test(dependsOnMethods = "create")
     public void read() throws Exception {
-        Product product = repository.findOne(id);
-        Assert.assertNotNull(product);
+        Name name = repository.findOne(id);
+        Assert.assertNotNull(name);
     }
  @Test(dependsOnMethods = "read")
     public void update() throws Exception {
@@ -42,10 +41,10 @@ public class ProductCRUDNGTest extends AbstractTestNGSpringContextTests{
     }
     @Test(dependsOnMethods = "update")
     public void delete() throws Exception {
-        Product product = repository.findOne(id);
-        repository.delete(product);
-        Product deletedproduct = repository.findOne(id);
-        Assert.assertNull(deletedproduct);
+        Name name = repository.findOne(id);
+        repository.delete(name);
+        Name deletedname = repository.findOne(id);
+        Assert.assertNull(deletedname);
     }*/
     }   
 

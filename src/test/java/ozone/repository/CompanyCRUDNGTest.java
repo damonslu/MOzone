@@ -2,33 +2,26 @@ package ozone.repository;
 
 import ozone.App;
 import ozone.domain.Company;
-import org.junit.Assert;
-import org.junit.Test;
-import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
+import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
-
-import java.util.ArrayList;
-import java.util.List;
+import org.testng.Assert;
+import org.testng.annotations.Test;
 import ozone.domain.Address;
 import ozone.domain.Contact;
-
-/**
+ /**
  * Created by hashcode on 2015/04/13.
  */
-@RunWith(SpringJUnit4ClassRunner.class)
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
-public class CompanyCRUDNGTest {
-
-
+public class CompanyCRUDNGTest extends AbstractTestNGSpringContextTests{
+    private Long id;
     @Autowired
-    CompanyRepository repository;
+    private CompanyRepository repository;
     @Test
-    public void testCreate() throws Exception {
-        List<Company> companys = new ArrayList<>();
+    public void Create() throws Exception {
+        
         Address address = new Address.Builder("9807")
                 .physicalAddress("14 Bleomhof")
                 .postalAddress("POBOX 60")
@@ -42,11 +35,27 @@ public class CompanyCRUDNGTest {
                 .address(address)
                 .contact(contact)
                 .build();
-                
+              
         repository.save(company);
-        Assert.assertNotNull(company.getId());
+        Assert.assertNotNull(company);
+    }
+    
+        @Test(dependsOnMethods = "create")
+    public void read() throws Exception {
+        Company company = repository.findOne(id);
+        Assert.assertNotNull(company);
+    }
+     /*   @Test(dependsOnMethods = "read")
+    public void update() throws Exception {
 
-        company = repository.findOne(company.getId());
+    }
+          @Test(dependsOnMethods = "update")
+    public void delete() throws Exception {
+        Company company = repository.findOne(id);
+        repository.delete(company);
+        Company deletedcompany = repository.findOne(id);
+        Assert.assertNull(deletedcompany);*/
+      /*  company = repository.findOne(company.getId());
         Assert.assertEquals("Dischem", company.getCompName());
 
 
@@ -62,7 +71,7 @@ public class CompanyCRUDNGTest {
         repository.delete(company);
         newcompany = repository.findOne(company.getId());
         Assert.assertNull(newcompany);
-    }
+    }*/
 
 
 }

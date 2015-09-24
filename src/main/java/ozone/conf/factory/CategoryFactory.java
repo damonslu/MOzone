@@ -16,13 +16,12 @@ import ozone.domain.Product;
  */
  public class CategoryFactory {
     
-    private static Category createCategory(String cat_Name,String description, Long id,
+    public static Category createCategory(String cat_Name,String description,
             List<Product> products){
 
         Category category = new Category
                 .Builder(cat_Name)
                 .setDescription(description)
-                .setId(id)
                 .setProduct(products)
                 .build();
         return category;

@@ -1,6 +1,6 @@
 package ozone.domain;
 
-import ozone.domain.AddressFactory;
+import ozone.conf.factory.AddressFactory;
 import org.junit.Assert;
 import org.junit.Test;
 

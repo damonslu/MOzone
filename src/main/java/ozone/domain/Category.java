@@ -9,23 +9,13 @@ package ozone.domain;
 
 import java.io.Serializable;
 import java.util.List;
-import javax.persistence.CascadeType;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.OneToMany;
-
-
+import javax.persistence.*;
 /**
  *
  * @author damonslu
  */
 @Entity
 public class Category implements Serializable{
-    private static final Long serialVersionUID = 1L;
     @Id
     @GeneratedValue (strategy = GenerationType.AUTO)
     private Long id;
@@ -35,8 +25,8 @@ public class Category implements Serializable{
     @JoinColumn(name="Category_id")
     private List<Product> products;
    
-    public Category(){
-           
+    private Category(){
+       
        }
      public Long getId(){
            return id;
@@ -52,7 +42,7 @@ public List<Product> getProducts() {
         return products;
     }
       
-      private Category(Category.Builder builder) {
+      public Category(Builder builder) {
         this.catName=builder.catName;
         this.id=builder.id;
         this.description=builder.description;

@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package ozone.domain;
+package ozone.conf.factory;
 
 import ozone.domain.Address;
 

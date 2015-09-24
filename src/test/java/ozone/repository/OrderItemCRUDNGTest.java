@@ -1,37 +1,40 @@
 package ozone.repository;
 
+import java.util.List;
 import ozone.App;
-import ozone.domain.Product;
+import ozone.domain.OrderItem;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.annotations.Test;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.testng.Assert;
-import ozone.conf.factory.ProductFactory;
+import ozone.conf.factory.OrderItemFactory;
+import ozone.domain.Product;
 
 /**
  * Created by hashcode on 2015/04/13.
  */
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
-public class ProductCRUDNGTest extends AbstractTestNGSpringContextTests{
+public class OrderItemCRUDNGTest extends AbstractTestNGSpringContextTests{
     private Long id;
-
+    private List<Product> product;
     @Autowired
-    private ProductRepository repository;
+    private OrderItemRepository repository;
+    
     @Test
     public void create() throws Exception {
-        //System.out.println("Hello world");
-        Product product = ProductFactory.createProduct(500, 4, "GucciBag");             
-             repository.save(product);
-             id = product.getId();
-        Assert.assertNotNull(product);
+        /*Sstem.out.println("Hello world");
+        OrderItem orderitem = OrderItemFactory.createOrderItem("dfd", 4, "Wow",product);
+             repository.save(orderitem);
+             id = orderitem.getId();
+        Assert.assertNotNull(orderitem);
     }
-    @Test(dependsOnMethods = "create")
+    /*@Test(dependsOnMethods = "create")
     public void read() throws Exception {
-        Product product = repository.findOne(id);
-        Assert.assertNotNull(product);
+        OrderItem orderitem = repository.findOne(id);
+        Assert.assertNotNull(orderitem);
     }
  @Test(dependsOnMethods = "read")
     public void update() throws Exception {
@@ -42,12 +45,13 @@ public class ProductCRUDNGTest extends AbstractTestNGSpringContextTests{
     }
     @Test(dependsOnMethods = "update")
     public void delete() throws Exception {
-        Product product = repository.findOne(id);
-        repository.delete(product);
-        Product deletedproduct = repository.findOne(id);
-        Assert.assertNull(deletedproduct);
+        OrderItem orderitem = repository.findOne(id);
+        repository.delete(orderitem);
+        OrderItem deletedorderitem = repository.findOne(id);
+        Assert.assertNull(deletedorderitem);
     }*/
     }   
+}
 
                
         

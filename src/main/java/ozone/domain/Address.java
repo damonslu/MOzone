@@ -1,7 +1,7 @@
 package ozone.domain;
 
-import javax.persistence.Embeddable;
 import java.io.Serializable;
+import javax.persistence.Embeddable;
 
 /**
  * Created by hashcode on 2015/04/20.

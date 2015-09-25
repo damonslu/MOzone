@@ -7,8 +7,8 @@
 package ozone.conf.factory;
 
 import java.util.List;
-import ozone.domain.Company;
 import ozone.domain.Address;
+import ozone.domain.Company;
 import ozone.domain.Contact;
 import ozone.domain.Product;
 

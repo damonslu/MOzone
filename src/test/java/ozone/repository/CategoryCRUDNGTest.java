@@ -1,17 +1,17 @@
 package ozone.repository;
 
 import java.util.List;
-import ozone.App;
-import ozone.conf.factory.CategoryFactory;
-import ozone.domain.Category;
-import ozone.conf.factory.ProductFactory;
-import ozone.domain.Product;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
 import org.springframework.test.context.web.WebAppConfiguration;
-import org.testng.annotations.Test;
 import org.testng.Assert;
+import org.testng.annotations.Test;
+import ozone.App;
+import ozone.conf.factory.CategoryFactory;
+import ozone.conf.factory.ProductFactory;
+import ozone.domain.Category;
+import ozone.domain.Product;
 
 
 /**

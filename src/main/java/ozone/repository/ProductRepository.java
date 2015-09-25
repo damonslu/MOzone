@@ -1,7 +1,7 @@
 package ozone.repository;
 
-import ozone.domain.Product;
 import org.springframework.data.repository.CrudRepository;
+import ozone.domain.Product;
 
 /**
  * Created by hashcode on 2015/04/13.

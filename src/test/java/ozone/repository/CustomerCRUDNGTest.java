@@ -1,14 +1,13 @@
 package ozone.repository;
 
 import java.util.List;
-import ozone.App;
-import ozone.domain.Customer;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.testng.annotations.Test;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.Assert;
+import org.testng.annotations.Test;
+import ozone.App;
 import ozone.conf.factory.AddressFactory;
 import ozone.conf.factory.ContactFactory;
 import ozone.conf.factory.CustomerFactory;
@@ -18,6 +17,7 @@ import ozone.conf.factory.OrderItemFactory;
 import ozone.conf.factory.ProductFactory;
 import ozone.domain.Address;
 import ozone.domain.Contact;
+import ozone.domain.Customer;
 import ozone.domain.Demographic;
 import ozone.domain.Name;
 import ozone.domain.OrderItem;

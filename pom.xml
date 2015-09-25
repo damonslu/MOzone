@@ -2,7 +2,7 @@
 xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     
-    <groupId>ozone</groupId>
+     <groupId>ozone</groupId>
     <artifactId>ozone</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
@@ -13,22 +13,28 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
    <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
-    
-      <dependencies>
+
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>1.2.6.RELEASE</version>
+  </parent>
+
+  <dependencies>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-web</artifactId>
-      <version>1.2.3.RELEASE</version>
+
     </dependency>
     <dependency>
       <groupId>mysql</groupId>
       <artifactId>mysql-connector-java</artifactId>
       <version>5.1.35</version>
     </dependency>
-      <dependency>
+    <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
-      <version>1.2.3.RELEASE</version>
+
     </dependency>
 
     <dependency>
@@ -40,14 +46,15 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-hateoas</artifactId>
-      <version>1.2.3.RELEASE</version>
     </dependency>
-
 
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-data-jpa</artifactId>
-      <version>1.2.3.RELEASE</version>
+    </dependency>
+    <dependency>
+      <groupId>org.springframework.boot</groupId>
+      <artifactId>spring-boot-starter-actuator</artifactId>
     </dependency>
 
     <dependency>
@@ -57,82 +64,25 @@ xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xs
       <scope>test</scope>
     </dependency>
     <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot</artifactId>
-      <version>1.2.3.RELEASE</version>
+      <groupId>org.springframework.data</groupId>
+      <artifactId>spring-data-commons</artifactId>
+      <version>1.9.2.RELEASE</version>
       <type>jar</type>
     </dependency>
-    <dependency>
-      <groupId>org.springframework.boot</groupId>
-      <artifactId>spring-boot-autoconfigure</artifactId>
-      <version>1.2.3.RELEASE</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-context</artifactId>
-      <version>4.1.6.RELEASE</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.springframework</groupId>
-      <artifactId>spring-webmvc</artifactId>
-      <version>4.1.6.RELEASE</version>
-      <type>jar</type>
-    </dependency>
-    <dependency>
-      <groupId>org.hibernate</groupId>
-      <artifactId>hibernate-core</artifactId>
-      <version>3.6.10.Final</version>
-      <type>jar</type>
-    </dependency>
-            <dependency>
-                  <groupId>org.hibernate</groupId>
-                  <artifactId>hibernate-entitymanager</artifactId>
-                  <version>3.6.10.Final</version>
-            </dependency>
-            <dependency>
-                  <groupId>org.hibernate</groupId>
-                  <artifactId>hibernate-commons-annotations</artifactId>
-                  <version>3.2.0.Final</version>
-            </dependency>
-            <dependency>
-                  <groupId>org.hibernate.javax.persistence</groupId>
-                  <artifactId>hibernate-jpa-2.0-api</artifactId>
-                  <version>1.0.1.Final</version>
-            </dependency>
-            <dependency>
-                  <groupId>javax.transaction</groupId>
-                  <artifactId>jta</artifactId>
-                  <version>1.1</version>
-            </dependency>
-            <dependency>
-                  <groupId>org.hibernate.javax.persistence</groupId>
-                  <artifactId>hibernate-jpa-2.1-api</artifactId>
-                  <version>1.0.0.Final</version>
-                  <type>jar</type>
-            </dependency>
-      </dependencies>
+  </dependencies>
+
   <build>
     <plugins>
-       <plugin>
-            <groupId>org.codehaus.mojo</groupId>
-            <artifactId>exec-maven-plugin</artifactId>
-            <version>1.2.1</version>
-            <executions>
-                <execution>
-                     <goals>
-                        <goal>exec</goal>
-                    </goals>
-                    </execution>
-            </executions>  
-        </plugin>
-                      <plugin>
+      <plugin>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-maven-plugin</artifactId>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
-        <version>2.3.2</version>
         <configuration>
-        <source>1.7</source>
+          <!-- or whatever version you use -->
+          <source>1.7</source>
           <target>1.7</target>
         </configuration>
       </plugin>

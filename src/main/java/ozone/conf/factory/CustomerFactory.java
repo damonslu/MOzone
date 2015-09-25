@@ -4,9 +4,13 @@
  */
 package ozone.conf.factory;
 
-import ozone.domain.*;;
-
-import java.util.*;
+import java.util.List;
+import ozone.domain.Address;
+import ozone.domain.Contact;
+import ozone.domain.Customer;
+import ozone.domain.Demographic;
+import ozone.domain.Name;
+import ozone.domain.OrderItem;
 
 /**
  *

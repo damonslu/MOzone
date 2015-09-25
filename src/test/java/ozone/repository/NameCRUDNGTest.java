@@ -1,14 +1,14 @@
 package ozone.repository;
 
-import ozone.App;
-import ozone.domain.Name;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
-import org.springframework.test.context.web.WebAppConfiguration;
-import org.testng.annotations.Test;
 import org.springframework.test.context.testng.AbstractTestNGSpringContextTests;
+import org.springframework.test.context.web.WebAppConfiguration;
 import org.testng.Assert;
+import org.testng.annotations.Test;
+import ozone.App;
 import ozone.conf.factory.NameFactory;
+import ozone.domain.Name;
 
 /**
  * Created by hashcode on 2015/04/13.

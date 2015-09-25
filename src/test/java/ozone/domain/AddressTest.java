@@ -1,8 +1,8 @@
 package ozone.domain;
 
-import ozone.conf.factory.AddressFactory;
 import org.junit.Assert;
 import org.junit.Test;
+import ozone.conf.factory.AddressFactory;
 
 /**
  * Created by hashcode on 2015/05/03.

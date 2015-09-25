@@ -4,15 +4,16 @@
  * and open the template in the editor.
  */
 
-package ozone.repository;
+package ozone.service;
 
-import org.springframework.data.repository.CrudRepository;
-import ozone.domain.Name;
+import java.util.List;
+import ozone.domain.Product;
 
 /**
  *
  * @author DAMONSLU
  */
-public interface NameRepository extends CrudRepository<Name,Long> {
+public interface ProductService extends Service<Product, Long>{
+    List<Product> getProducts();
+    
 }
-

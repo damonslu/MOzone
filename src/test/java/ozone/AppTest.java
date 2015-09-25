@@ -2,6 +2,7 @@ package ozone;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
+import static junit.framework.TestCase.assertTrue;
 import junit.framework.TestSuite;
 
 /**

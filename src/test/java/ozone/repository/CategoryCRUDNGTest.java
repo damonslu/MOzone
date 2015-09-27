@@ -27,12 +27,21 @@ public class CategoryCRUDNGTest extends AbstractTestNGSpringContextTests{
     @Test
     public void create() throws Exception {
         //System.out.println("Hello world");
-        Product products = ProductFactory.createProduct(800, 1, "Reading Contacts");
-        Category category = CategoryFactory.createCategory("ContactLens","Reading contacts", (List<Product>) products);
+        List<Product> product1 = (List<Product>) ProductFactory.createProduct(800, 1, "Reading Contacts");
+        List<Product> product2 = (List<Product>) ProductFactory.createProduct(450, 3, "Sunglass");
+
+        Category category1 = CategoryFactory.createCategory("ContactLens","Reading contacts", (List<Product>) product1);
+       Category category2 = CategoryFactory.createCategory("ContactLens","Reading contacts", (List<Product>) product2);
+
                       
-             repository.save(category);
-             id = category.getId();
-        Assert.assertNotNull(category);
+             repository.save(category1);
+             repository.save(category2);
+             id = category1.getId();
+             id = category2.getId();
+
+        Assert.assertNotNull(category1);
+       Assert.assertNotNull(category2);
+
     }
     @Test(dependsOnMethods = "create")
     public void read() throws Exception {

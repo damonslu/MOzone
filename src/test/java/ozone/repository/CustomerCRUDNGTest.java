@@ -42,7 +42,8 @@ public class CustomerCRUDNGTest extends AbstractTestNGSpringContextTests{
         Contact contact = ContactFactory.createAddress("757688", "7575875", "DonL@gmail.com");
         Demographic demo = DemographicFactory.getDemographic("male", "BC");
         Product products = ProductFactory.createProduct(4500, 2, "Sunnies");
-        OrderItem orderitems = OrderItemFactory.createOrderItem("Ocley", 3, "Sunnies", (List<Product>) products);
+        OrderItem orderitems;
+        orderitems = OrderItemFactory.createOrderItem("Ocley", 3, "Sunnies", (List<Product>) products);
         
         Customer customer = CustomerFactory.createCustomer(name, address, contact, demo, (List<OrderItem>)orderitems);
              repository.save(customer);

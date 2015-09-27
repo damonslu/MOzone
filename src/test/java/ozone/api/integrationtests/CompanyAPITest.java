@@ -8,15 +8,19 @@ import org.springframework.web.client.RestTemplate;
 import java.net.URI;
 import java.util.LinkedHashMap;
 import java.util.List;
+import org.springframework.boot.test.IntegrationTest;
+import org.springframework.boot.test.SpringApplicationConfiguration;
+import org.springframework.test.context.web.WebAppConfiguration;
+import ozone.App;
 import ozone.domain.Address;
 
 /**
  * Created by hashcode on 2015/08/21.
  */
 //@RunWith(SpringJUnit4ClassRunner.class)
-//@SpringApplicationConfiguration(classes = App.class)
-//@WebAppConfiguration
-//@IntegrationTest({"server.port=8080"})
+@SpringApplicationConfiguration(classes = App.class)
+@WebAppConfiguration
+@IntegrationTest({"server.port=8080"})
 public class CompanyAPITest {
     private static Address address;
     private static Contact contact;

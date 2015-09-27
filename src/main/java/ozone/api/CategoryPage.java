@@ -36,9 +36,9 @@ public class CategoryPage {
 //        // ...
 //    }
 //
-    @RequestMapping(value="/faculties", method=RequestMethod.GET)
+    @RequestMapping(value="/category", method=RequestMethod.GET)
 
-    public List<CategoryResource> getFaculties() {
+    public List<CategoryResource> getCategories() {
         List<CategoryResource> hateos = new ArrayList<>();
         List<Category> categories = service.getAllCategories();
         for (Category category : categories) {

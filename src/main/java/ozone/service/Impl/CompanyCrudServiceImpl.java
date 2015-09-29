@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 import java.util.List;
 import ozone.domain.Customer;
+import ozone.domain.Product;
 
 /**
  * Created by hashcode on 2015/05/10.
@@ -17,7 +18,8 @@ import ozone.domain.Customer;
 public class CompanyCrudServiceImpl implements CompanyCrudService{
     @Autowired
     private CompanyRepository repository;
-        public List<Company> getAllFAculties() {
+    @Override
+        public List<Company> getCompanies() {
         List<Company> companies = new ArrayList<>();
         Iterable<Company> values = repository.findAll();
         for (Company value : values) {
@@ -68,6 +70,11 @@ public class CompanyCrudServiceImpl implements CompanyCrudService{
 
     @Override
     public List<Company> getEntitiesByProperName(String propertyName, String propertyValue) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Product> getProducts() {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 

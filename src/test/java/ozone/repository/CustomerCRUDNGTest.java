@@ -39,7 +39,7 @@ public class CustomerCRUDNGTest extends AbstractTestNGSpringContextTests{
         //System.out.println("Hello world");
         Name name = NameFactory.createName("Lio", "Don");
         Address address = AddressFactory.createAddress("7869", "23 HerriStreet", "HerrieStreet");
-        Contact contact = ContactFactory.createAddress("757688", "7575875", "DonL@gmail.com");
+        Contact contact = ContactFactory.createContact("757688", "7575875", "DonL@gmail.com");
         Demographic demo = DemographicFactory.getDemographic("male", "BC");
         Product products = ProductFactory.createProduct(4500, 2, "Sunnies");
         OrderItem orderitems;

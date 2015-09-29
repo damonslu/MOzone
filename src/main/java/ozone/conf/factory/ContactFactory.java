@@ -14,7 +14,7 @@ import ozone.domain.Contact;
  */
 public class ContactFactory {
     
-    public static Contact createAddress(String phoneNumber,String cellNumber, String email){
+    public static Contact createContact(String phoneNumber,String cellNumber, String email){
 
         Contact contact = new Contact
                 .Builder(phoneNumber)

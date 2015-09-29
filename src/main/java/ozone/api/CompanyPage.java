@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
 import org.springframework.hateoas.Link;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.PathVariable;
 import ozone.domain.Product;
 import ozone.model.CompanyResource;
@@ -17,7 +18,8 @@ import ozone.model.CompanyResource;
 /**
  * Created by hashcode on 2015/04/07.
  */
-@RestController
+@Controller
+//@RestController
 @RequestMapping("/company/**")
 public class CompanyPage {
     @Autowired

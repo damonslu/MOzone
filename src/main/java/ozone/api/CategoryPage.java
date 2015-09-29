@@ -13,12 +13,13 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Controller;
 
 /**
  * Created by hashcode on 2015/05/10.
  */
-
-@RestController
+@Controller
+//@RestController
 @RequestMapping(value="/category/**")
 public class CategoryPage {
     @Autowired

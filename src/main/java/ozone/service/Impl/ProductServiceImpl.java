@@ -1,7 +1,6 @@
 package ozone.service.Impl;
 
 import ozone.domain.Product;
-import ozone.domain.Category;
 import ozone.repository.ProductRepository;
 import ozone.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -4,7 +4,9 @@
  */
 package ozone.service;
 
+import java.util.List;
 import ozone.domain.Company;
+import ozone.domain.Product;
 
 /**
  *
@@ -12,4 +14,7 @@ import ozone.domain.Company;
  */
 public interface CompanyCrudService extends Service<Company, Long> {
     
+     List<Company> getCompanies();
+     List<Product> getProducts();
 }
+    

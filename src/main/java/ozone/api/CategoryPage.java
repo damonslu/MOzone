@@ -49,7 +49,7 @@ public class CategoryPage {
                     .resid(category.getId())
                     .build();
             Link products = new
-                    Link("http://localhost:8080/category/"+res.getResid().toString())
+                    Link("http://localhost:8084/category/"+res.getResid().toString())
                     .withRel("depts");
             res.add(products);
             hateos.add(res);

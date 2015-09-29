@@ -105,6 +105,7 @@ public Company copy(Company value){
                 this.compName = value.compName;
                 this.address = value.address;
                 this.contact = value.contact;
+                this.products = value.products;
 
                   return this;
 }

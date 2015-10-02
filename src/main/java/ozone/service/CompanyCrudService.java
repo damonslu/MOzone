@@ -12,7 +12,7 @@ import ozone.domain.Product;
  *
  * @author administrator
  */
-public interface CompanyCrudService extends Service<Company, Long> {
+public interface CompanyCrudService {
     
      List<Company> getCompanies();
      List<Product> getProducts();

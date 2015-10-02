@@ -11,7 +11,7 @@ import ozone.domain.Address;
 import ozone.domain.Company;
 import ozone.domain.Contact;
  /**
- * Created by hashcode on 2015/04/13.
+ * damonslu
  */
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration

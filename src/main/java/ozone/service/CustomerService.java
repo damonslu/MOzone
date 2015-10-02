@@ -9,7 +9,7 @@ import ozone.domain.Product;
  *
  * @author Administrator
  */
-public interface CustomerService extends Service<Customer, Long>{
+public interface CustomerService {
     /**
      *
      * @return

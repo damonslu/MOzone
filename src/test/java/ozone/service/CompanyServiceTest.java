@@ -14,6 +14,8 @@ import java.util.ArrayList;
 import java.util.List;
 import org.springframework.boot.test.SpringApplicationConfiguration;
 import org.springframework.test.context.web.WebAppConfiguration;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Test;
 import ozone.App;
 import ozone.conf.factory.AddressFactory;
 import ozone.domain.Address;
@@ -24,21 +26,23 @@ import ozone.domain.Contact;
  */
 @SpringApplicationConfiguration(classes= App.class)
 @WebAppConfiguration
-public class CompanyServiceTest extends AbstractTestNGSpringContextTests{
-    @Autowired
+public class CompanyServiceTest 
+{//extends AbstractTestNGSpringContextTests{
+    //@Autowired
     private CompanyCrudService service;
 
     private Long id;
 
-    @Autowired
+    //@Autowired
     private CompanyRepository repository;
     private List<Product> products;
-//    @BeforeMethod
+    
+    @BeforeMethod
     public void setUp() throws Exception {
         products = new ArrayList<>();
 
     }
-//    @Test
+   @Test(enabled = true)
     public void create() throws Exception {
 
         Address co_add = AddressFactory
@@ -60,8 +64,7 @@ public class CompanyServiceTest extends AbstractTestNGSpringContextTests{
         Assert.assertNotNull(company.getId());
     }
 
-
-//    @Test
+   @Test
     public void testGetCompanyProduct() throws Exception {
         List<Product> co_prods = service.getProducts();
         Assert.assertTrue(products.size() == 2);

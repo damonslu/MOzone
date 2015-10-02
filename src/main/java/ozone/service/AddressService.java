@@ -11,6 +11,6 @@ import ozone.domain.Address;
  *
  * @author boniface
  */
-public interface AddressService  extends Service<Address, Long>{
+public interface AddressService {
 
 }

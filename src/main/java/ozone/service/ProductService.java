@@ -13,7 +13,7 @@ import ozone.domain.Product;
  *
  * @author DAMONSLU
  */
-public interface ProductService extends Service<Product, Long>{
+public interface ProductService {
     List<Product> getProducts();
     
 }

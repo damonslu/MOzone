@@ -7,6 +7,6 @@ import ozone.domain.Company;
  * Created by hashcode on 2015/04/13.
  */
 public interface CompanyRepository extends CrudRepository<Company,Long>{
-    public Company getCompanies(String comp_Name);
+    
 
 }

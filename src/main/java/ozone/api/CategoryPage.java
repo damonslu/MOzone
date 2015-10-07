@@ -13,18 +13,26 @@ import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 import java.util.List;
+import org.springframework.stereotype.Controller;
 
-@RestController
-@RequestMapping(value="/api/**")
+/**
+ * Created by hashcode on 2015/05/10.
+ */
+@Controller
+//@RestController
+@RequestMapping(value="/category/**")
 public class CategoryPage {
     @Autowired
     private CategoryService service;
-    @RequestMapping(value="category", method= RequestMethod.GET)
-    public String Index(){
-        return "This is the Category Page";
-    }
+    @RequestMapping(value="/{id}", method= RequestMethod.GET)
+    public List<Product> getCategoryProducts(@PathVariable Long id) {
 
- //    @RequestMapping(value="/{id}/products", method=RequestMethod.GET)
+
+        // ...
+        return service.getProducts(id);
+    }
+//
+//    @RequestMapping(value="/{id}/products", method=RequestMethod.GET)
 //    List<Product> getCategoryProducts(@PathVariable Long id) {
 //        // ...
 //    }

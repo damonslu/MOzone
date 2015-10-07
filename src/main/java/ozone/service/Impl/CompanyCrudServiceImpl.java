@@ -10,9 +10,11 @@ import java.util.ArrayList;
 import java.util.List;
 import ozone.domain.Product;
 
-@Service("CompanyService")
-//@Transactional
-public abstract class CompanyCrudServiceImpl implements CompanyCrudService{
+/**
+ * Created by hashcode on 2015/05/10.
+ */
+@Service
+public class CompanyCrudServiceImpl implements CompanyCrudService{
     @Autowired
     private CompanyRepository repository;
     @Override
@@ -24,9 +26,57 @@ public abstract class CompanyCrudServiceImpl implements CompanyCrudService{
         }
         return companies;
     }
-public List<Product> getProducts(Long id) {
 
-        return repository.findOne(id).getProduct();
+        public String getCustomer(Long id) {
+
+        return repository.findOne(id).getCompName();
     }
 
+    @Override
+    public Company find(Long id) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
+
+    @Override
+    public void persist(Company entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void merge(Company entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public void remove(Company entity) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Company> findAll() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Company> findInRange(int firstResult, int maxResults) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public long count() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Company> getEntitiesByProperName(String propertyName, String propertyValue) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public List<Product> getProducts() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+
+
+}
